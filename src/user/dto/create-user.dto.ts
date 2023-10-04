@@ -1,20 +1,15 @@
-import {
-  IsString,
-  IsEmail,
-  IsStrongPassword,
-  IsNotEmpty,
-} from 'class-validator';
+import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
-  @IsStrongPassword({
-    minLength: 6,
-  })
   @IsNotEmpty()
+  @IsString()
   password: string;
 }
